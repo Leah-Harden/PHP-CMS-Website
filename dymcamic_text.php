@@ -6,13 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
+    <?php
 
-$title = 'Hello!'
+    $title = 'Hello! ';
+
+$array = [12312,3123] ;
+
 
     ?>
 
-<h1><?php echo $title ?></h1>
+<h1><?php
+echo $title;
+
+echo $array[0];  
+
+
+?></h1>
 
 
 </body>
