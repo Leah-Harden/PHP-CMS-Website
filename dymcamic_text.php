@@ -10,19 +10,47 @@
 
     $title = 'Hello! ';
 
-$array = [12312,3123] ;
+
+
+    //Normal Arrays
+    
+    $array = [12312,3123] ;
+    
+    //can be written either way
+
+    $normalName = array('asdf');
+
+    $normalNumber = [10];
+// Associative Arrays
+
+$name = array('fn' => 'Leah');
+
+$number = array('num' => 20);
 
 
     ?>
 
-<h1><?php
+<h1>
+    <?php
 echo $title;
-
 echo $array[0];  
+?>
+</h1>
 
+<br>
 
-?></h1>
+<h1>
+    <?php
 
+echo $name['fn'];
+?>
+
+</h1>
+<?php
+//fix
+echo $number(0) + $normalNumber('num'), '<br>';
+
+?>
 
 </body>
 </html>
