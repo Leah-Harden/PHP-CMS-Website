@@ -27,7 +27,9 @@ $name = array('fn' => 'Leah');
 
 $number = array('num' => 20);
 
-
+// Extract values from arrays and add them 
+//you have to do the math on this end!
+$sum = $normalNumber[0] + $number['num'];
     ?>
 
 <h1>
@@ -47,8 +49,8 @@ echo $name['fn'];
 
 </h1>
 <?php
-//fix
-echo $number(0) + $normalNumber('num'), '<br>';
+
+echo "The sum of the numbers is: " . $sum;
 
 ?>
 
