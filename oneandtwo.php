@@ -52,7 +52,14 @@ echo $name['fn'];
 
 echo "The sum of the numbers is: " . $sum;
 
+
+//end of Section 1 and 2
+
 ?>
+
+
+
+
 
 </body>
 </html>
