@@ -7,6 +7,20 @@
 </head>
 <body>
     <?php
+    // GUIDE
+    
+    // Equal: ==
+    // Indentical: ===
+    // Greater/Less than: > , <
+    // Greater/Less than or equal: >= , <=
+    // Not Equal: !=
+    // Not Indentical: !==
+    
+    // OR: ||
+    // AND: &&
+
+
+//IF statements 
 
 if(3 < 10 ){
         echo '3 is less then 10';
@@ -24,18 +38,42 @@ if(3 < 10 ){
         echo 'not true';
 };
 
-// GUIDE
-
-// Equal: ==
-// Indentical: ===
-// Greater/Less than: > , <
-// Greater/Less than or equal: >= , <=
-// Not Equal: !=
-// Not Indentical: !==
 
 
+//Switch statements 
+    
+    $switchNumber = 34;
+
+switch($switchNumber) {
+
+    case 32:
+    echo '32';
+        break;
+    case 33:
+    echo '33';
+        break;
+    case 34:
+    echo '34';
+        break;
+
+        default:
+            echo 'none found';
+                    break;
+
+};
 
 
+//Loops
+    $counter = 0;
+    while($counter <= 5){
+        echo $counter;
+    $counter++;
+    };
+
+    for ($counterfor = 0; $counterfor < 4; $counterfor++) {
+        echo $counterfor . '<br>';
+
+};
 
     ?>
 
