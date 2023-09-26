@@ -10,7 +10,19 @@
 <body>
 
 
+<?php
 
+//Functions
+
+function say(){
+
+    echo 'hello';
+
+};
+
+say();
+
+?>
 
 
 

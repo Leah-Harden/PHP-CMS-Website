@@ -65,11 +65,14 @@ switch($switchNumber) {
 
 //Loops
     $counter = 0;
+
+//while
     while($counter <= 5){
         echo $counter;
     $counter++;
     };
 
+//for
     for ($counterfor = 0; $counterfor < 4; $counterfor++) {
         echo $counterfor . '<br>';
 
