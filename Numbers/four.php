@@ -10,21 +10,37 @@
 <body>
 
 
-<?php
+    <?php
 
-//Functions
+    //Functions
 
-function say(){
+    function say()
+    {
 
-    echo 'hello';
+        echo 'hello';
+    };
+    say();
 
-};
+    echo 'i am second';
 
-say();
+    function cal($num, $num2)
+    {
 
-?>
+        $sum = $num +  $num2;
+
+        return $sum;
+    };
+    // you need the comma  | here or it will see it as one thing
+    $result = cal(cal(4, 4), +100);
+
+    echo $result;
+
+    function init()
+    {
+    };
 
 
+    ?>
 
 </body>
 
