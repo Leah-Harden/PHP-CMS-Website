@@ -35,13 +35,29 @@
 
     echo $result;
 
-    function init()
+
+    $x = 'outside'; //global
+    function convert()
     {
+        global $x;
+        $x = 'inside'; //local
     };
+    convert();
+    echo '<br>';
+    echo $x;
+    echo '<br>';
+
+    //constant
+    //(name, value)
+    define('name', 10);
+    //new way of doing it
+    const NAME = 10;
+
+
+
 
 
     ?>
-
 </body>
 
 </html>
