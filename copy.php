@@ -8,14 +8,14 @@
 </head>
 
 <body>
+    <!-- This is a comment. -->
+
+    <?php
+
+    //put code here
 
 
-<?php
-
-//put code here
-
-
-?>
+    ?>
 
 
 
