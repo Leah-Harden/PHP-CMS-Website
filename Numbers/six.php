@@ -1,9 +1,17 @@
-$_POST
 <?php
 //Getting data from forms!
 if (isset($_POST['submit'])) {
 
-    echo 'submitted';
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if
+    //(strlen($username || $password) < 8) this return a boolean value (either true or false), it will return true
+    (strlen($username) < 8 || strlen($password) < 8) {
+        echo "username and password must be at least 8 characters long";
+    } else {
+        echo 'hello ' . $username;
+    };
 };
 
 ?>
@@ -24,8 +32,8 @@ if (isset($_POST['submit'])) {
     <!-- Getting data from forms! -->
     <form action='six.php' method="post">
 
-        <input type='text' placeholder="username">
-        <input type='password' placeholder="password">
+        <input type='text' name='username' placeholder="username">
+        <input type='password' name="password" placeholder="password">
 
 
         <!-- Name is getting sent -->
