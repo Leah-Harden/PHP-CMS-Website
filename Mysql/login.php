@@ -1,3 +1,29 @@
+<?php
+
+//put code here
+if (isset($_POST['submit'])) {
+
+    $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
+
+    if ($connection) {
+        echo 'working';
+    } else {
+
+        die('die');
+    };
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if ($username && $password) {
+
+        echo "yes";
+    }
+};
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,26 +39,20 @@
         <div class="col-xs-6">
             <form action="login.php" method="post">
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username" value="username">Username</label>
                     <input type="text" class="form-control">
                 </div>
                 <div>
                     <label for="password">Password</label>
                     <input type="password" class="form-control">
                 </div>
-                <input class="btn btn-primary" name="submit" type="submit">
+                <input class="btn btn-primary" name="submit" type="submit" value="submit">
             </form>
 
         </div>
     </div>
 
 
-    <?php
-
-    //put code here
-
-
-    ?>
 
 </body>
 
