@@ -19,8 +19,23 @@ if (isset($_POST['submit'])) {
 
         echo "yes";
     }
-};
 
+
+    $query = 'INSERT INTO users(username,password)';
+    // Assuming you have a database connection established
+    $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+
+    // Set the values of $username and $password here
+
+    $stmt->execute();
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die('FAILED');
+    };
+};
 
 ?>
 
