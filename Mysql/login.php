@@ -2,41 +2,32 @@
 
 //put code here
 if (isset($_POST['submit'])) {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        // MySQLi Configuration
+        $hostname = 'localhost';
+        $username = 'root';
+        $password = '';
+        $database = 'loginapp';
 
-    $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
+        $connection = mysqli_connect($hostname, $username, $password, $database);
 
-    if ($connection) {
-        echo 'working';
-    } else {
+        if (!$connection) {
+            die('Connection failed: ' . mysqli_connect_error());
+        }
+        $username = mysqli_real_escape_string($connection, $_POST['username']);
+        $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-        die('die');
+
+        $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+        $result = mysqli_query($connection, $query);
+
+        if (!$result) {
+            die('Insert failed: ' . mysqli_error($connection));
+        } else {
+            echo 'Insert successful';
+        }
     };
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if ($username && $password) {
-
-        echo "yes";
-    }
-
-
-    $query = 'INSERT INTO users(username,password)';
-    // Assuming you have a database connection established
-    $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-
-    // Set the values of $username and $password here
-
-    $stmt->execute();
-    $result = mysqli_query($connection, $query);
-
-    if (!$result) {
-        die('FAILED');
-    };
-};
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,11 +46,11 @@ if (isset($_POST['submit'])) {
             <form action="login.php" method="post">
                 <div class="form-group">
                     <label for="username" value="username">Username</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="username" class="form-control">
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" name='password' class="form-control">
                 </div>
                 <input class="btn btn-primary" name="submit" type="submit" value="submit">
             </form>
