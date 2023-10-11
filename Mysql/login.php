@@ -18,7 +18,10 @@ if (isset($_POST['submit'])) {
         $password = mysqli_real_escape_string($connection, $_POST['password']);
 
 
-        $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+        //$query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+
+        $query = 'SELECT * FROM users';
+        //$result = '';
         $result = mysqli_query($connection, $query);
 
         if (!$result) {
@@ -42,21 +45,29 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="container">
-        <div class="col-xs-6">
-            <form action="login.php" method="post">
-                <div class="form-group">
-                    <label for="username" value="username">Username</label>
-                    <input type="text" name="username" class="form-control">
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" name='password' class="form-control">
-                </div>
-                <input class="btn btn-primary" name="submit" type="submit" value="submit">
-            </form>
+        <?php
+        while ($row = mysqli_fetch_row($result)) {
+            // Access specific columns using the keys and print them
+            echo "Username: " . $row['username'] . "<br>";
+            echo "Password: " . $row['password'] . "<br>";
+        };
+        ?>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="username" value="username">Username</label>
+                <input type="text" name="username" class="form-control">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name='password' class="form-control">
+            </div>
+            <input class="btn btn-primary" name="submit" type="submit" value="submit">
+        </form>
 
-        </div>
     </div>
+    </div>
+
+
 
 
 
