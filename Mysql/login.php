@@ -30,47 +30,51 @@ if (isset($_POST['submit'])) {
             echo 'Insert successful';
         }
     };
-}
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Document</title>
-</head>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-<body>
-    <div class="container">
+    <body>
+        <div class="container">
         <?php
-        while ($row = mysqli_fetch_row($result)) {
-            // Access specific columns using the keys and print them
-            echo "Username: " . $row['username'] . "<br>";
-            echo "Password: " . $row['password'] . "<br>";
-        };
+        $query = 'SELECT * FROM users';
+        $result = mysqli_query($connection, $query);
+
+        if (!$result) {
+            die('Select failed: ' . mysqli_error($connection));
+        } else {
+            while ($row = mysqli_fetch_assoc($result)) {
+                // Access specific columns using the keys and print them
+                echo "Username: " . $row['username'] . "<br>";
+                echo "Password: " . $row['password'] . "<br>";
+            }
+        }
+    }
         ?>
         <form action="login.php" method="post">
             <div class="form-group">
-                <label for="username" value="username">Username</label>
-                <input type="text" name="username" class="form-control">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name='password' class="form-control">
+                <input type="password" name="password" id="password" class="form-control">
             </div>
-            <input class="btn btn-primary" name="submit" type="submit" value="submit">
+            <input class="btn btn-primary" name="submit" type="submit" value="Submit">
         </form>
-
-    </div>
-    </div>
-
+        </div>
+        </div>
 
 
+    </body>
 
-
-</body>
-
-</html>
+    </html>
