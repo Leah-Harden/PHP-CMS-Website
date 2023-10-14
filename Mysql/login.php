@@ -69,6 +69,12 @@ if (isset($_POST['submit'])) {
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control">
             </div>
+            <div class="form-group">
+                <select name="" id="">
+
+                    <option value="">1</option>
+                </select>
+            </div>
             <input class="btn btn-primary" name="submit" type="submit" value="Submit">
         </form>
         </div>
